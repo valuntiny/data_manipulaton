@@ -36,3 +36,18 @@ select(litters_data, -pups_survive)
 select(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
 ```
 
+or you can just use rename
+```{r}
+rename(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
+choose a specific pattern
+
+```{r}
+select(litters_data, starts_with("gd"))
+```
+
+## Learning assessment
+```{r}
+select(pups_data, litter_number, sex, pd_ears)
+```
