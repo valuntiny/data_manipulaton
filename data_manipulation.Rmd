@@ -82,3 +82,13 @@ mutate(litters_data,
   group = tolower(group)
 )
 ```
+
+## arrange
+
+you can arrange data by one or more column
+
+```{r}
+head(arrange(litters_data, group), 10)
+head(arrange(litters_data, group, pups_born_alive), 10)
+```
+

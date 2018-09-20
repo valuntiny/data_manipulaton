@@ -221,3 +221,46 @@ mutate(litters_data,
     ## 3 con7  #5/5/3/83/3-3       26          41.4          19               6
     ## # ... with 46 more rows, and 3 more variables: pups_dead_birth <int>,
     ## #   pups_survive <int>, wt_gain <dbl>
+
+arrange
+-------
+
+you can arrange data by one or more column
+
+``` r
+head(arrange(litters_data, group), 10)
+```
+
+    ## # A tibble: 10 x 8
+    ##    group litter_number gd0_weight gd18_weight gd_of_birth pups_born_alive
+    ##    <chr> <chr>              <dbl>       <dbl>       <int>           <int>
+    ##  1 Con7  #85                 19.7        34.7          20               3
+    ##  2 Con7  #1/2/95/2           27          42            19               8
+    ##  3 Con7  #5/5/3/83/3-3       26          41.4          19               6
+    ##  4 Con7  #5/4/2/95/2         28.5        44.1          19               5
+    ##  5 Con7  #4/2/95/3-3         NA          NA            20               6
+    ##  6 Con7  #2/2/95/3-2         NA          NA            20               6
+    ##  7 Con7  #1/5/3/83/3-…       NA          NA            20               9
+    ##  8 Con8  #3/83/3-3           NA          NA            20               9
+    ##  9 Con8  #2/95/3             NA          NA            20               8
+    ## 10 Con8  #3/5/2/2/95         28.5        NA            20               8
+    ## # ... with 2 more variables: pups_dead_birth <int>, pups_survive <int>
+
+``` r
+head(arrange(litters_data, group, pups_born_alive), 10)
+```
+
+    ## # A tibble: 10 x 8
+    ##    group litter_number gd0_weight gd18_weight gd_of_birth pups_born_alive
+    ##    <chr> <chr>              <dbl>       <dbl>       <int>           <int>
+    ##  1 Con7  #85                 19.7        34.7          20               3
+    ##  2 Con7  #5/4/2/95/2         28.5        44.1          19               5
+    ##  3 Con7  #5/5/3/83/3-3       26          41.4          19               6
+    ##  4 Con7  #4/2/95/3-3         NA          NA            20               6
+    ##  5 Con7  #2/2/95/3-2         NA          NA            20               6
+    ##  6 Con7  #1/2/95/2           27          42            19               8
+    ##  7 Con7  #1/5/3/83/3-…       NA          NA            20               9
+    ##  8 Con8  #2/2/95/2           NA          NA            19               5
+    ##  9 Con8  #1/6/2/2/95-2       NA          NA            20               7
+    ## 10 Con8  #3/6/2/2/95-3       NA          NA            20               7
+    ## # ... with 2 more variables: pups_dead_birth <int>, pups_survive <int>
