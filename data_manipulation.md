@@ -325,8 +325,40 @@ litters_data =
   select(-pups_survive) %>%
   mutate(
     wt_gain = gd18_weight - gd0_weight,
-    group = tolower(group)) %>%
+    group = tolower(group)
+  ) %>%
   filter(!is.na(gd0_weight))
+
+head(litters_data, 10)
+```
+
+    ## # A tibble: 10 x 8
+    ##    group litter_number gd0_weight gd18_weight gd_of_birth pups_born_alive
+    ##    <chr> <chr>              <dbl>       <dbl>       <int>           <int>
+    ##  1 con7  #85                 19.7        34.7          20               3
+    ##  2 con7  #1/2/95/2           27          42            19               8
+    ##  3 con7  #5/5/3/83/3-3       26          41.4          19               6
+    ##  4 con7  #5/4/2/95/2         28.5        44.1          19               5
+    ##  5 con8  #3/5/2/2/95         28.5        NA            20               8
+    ##  6 con8  #5/4/3/83/3         28          NA            19               9
+    ##  7 mod7  #59                 17          33.4          19               8
+    ##  8 mod7  #103                21.4        42.1          19               9
+    ##  9 mod7  #3/82/3-2           28          45.9          20               5
+    ## 10 mod7  #4/2/95/2           23.5        NA            19               9
+    ## # ... with 2 more variables: pups_dead_birth <int>, wt_gain <dbl>
+
+illustrate by using dot
+
+``` r
+litters_data = 
+  read_csv("./data_import_examples/FAS_litters.csv", col_types = "ccddiiii") %>%
+  janitor::clean_names(.) %>%
+  select(., -pups_survive) %>%
+  mutate(., 
+    wt_gain = gd18_weight - gd0_weight,
+    group = tolower(group)
+  ) %>%
+  filter(., !is.na(gd0_weight))
 
 head(litters_data, 10)
 ```
