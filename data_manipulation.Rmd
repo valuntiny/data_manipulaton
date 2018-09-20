@@ -1,9 +1,6 @@
 ---
 title: "data_manipulation"
-output:
-  html_document:
-    toc: true
-    toc_float: true
+output: github_document
 author: Guojing Wu
 data: 2018-09-20
 ---
@@ -51,3 +48,5 @@ select(litters_data, starts_with("gd"))
 ```{r}
 select(pups_data, litter_number, sex, pd_ears)
 ```
+
+## 
