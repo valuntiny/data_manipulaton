@@ -1,0 +1,38 @@
+---
+title: "data_manipulation"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+author: Guojing Wu
+data: 2018-09-20
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+ 
+## import data
+
+```{r}
+options(tibble.print_min = 3)
+
+litters_data = read_csv("./data_import_examples/FAS_litters.csv",
+  col_types = "ccddiiii")
+litters_data = janitor::clean_names(litters_data)
+
+pups_data = read_csv("./data_import_examples/FAS_pups.csv",
+  col_types = "ciiiii")
+pups_data = janitor::clean_names(pups_data)
+```
+
+## select, remove and rename
+
+```{r}
+select(litters_data, group, litter_number, gd0_weight, pups_born_alive)
+select(litters_data, group:gd_of_birth)
+select(litters_data, -pups_survive)
+select(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
